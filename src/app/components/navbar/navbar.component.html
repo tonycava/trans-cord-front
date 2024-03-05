@@ -1,0 +1,36 @@
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <img class="block h-8 w-auto" src="favicon.ico" alt="Logo">
+      </div>
+      <div class="flex-1 flex justify-center items-center">
+        <input type="text" class="py-2 px-4 rounded-md w-full sm:w-3/4 lg:w-1/2 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring focus:border-blue-300" placeholder="Recherche...">
+      </div>
+      <div class="ml-4 relative">
+        <div>
+          <button (click)="onMenuClick()" id="dropdownButton" class="flex items-center text-white focus:outline-none text-xl h-16 leading-10 px-0 py-4">
+            <span>Menu</span>
+            <svg class="h-5 w-5 ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+        </div>
+        @if (isDropdownOpen) {
+          <div id="dropdownMenu" class="fixed top-0 inset-x-0 bg-gray-800 z-50">
+            <div class="max-w-screen min-h-screen mx-auto px-4 py-8 text-lg text-white">
+              <button (click)="closeDropdown()" id="backButton" class="text-left mb-4">
+                <svg class="h-5 w-5 inline-block -mt-1 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path></svg>
+                Retour
+              </button>
+              <div class="flex flex-col items-center">
+                <a href="/" class="block mb-4 text-white hover:text-white">Home</a>
+                <a href="/profile" class="block mb-4 text-white hover:text-white">Profile</a>
+                <a href="/about" class="block text-white hover:text-white">About Us</a>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

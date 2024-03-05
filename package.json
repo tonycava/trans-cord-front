@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:transcord-front": "node dist/transcord-front/server/server.mjs"
+    "serve:ssr:transcord-front": "node dist/transcord-front/server/server.mjs",
+    "tailwind": "npx tailwindcss -i ./src/styles.scss -o ./src/output.scss --watch"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,7 @@
     "@angular/ssr": "^17.2.0",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
+    "tailwindcss-gradient-text": "^1.0.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
