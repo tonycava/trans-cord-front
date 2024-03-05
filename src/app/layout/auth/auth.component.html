@@ -1,0 +1,38 @@
+<div class="flex justify-center items-center h-screen flex-col gap-6">
+  <h1
+    class="text-3xl text-secondary text-center font-poppins-bold"
+  >
+    🏳️‍🌈 Trans cord 🏳️‍🌈
+  </h1>
+  <div class="p-8 rounded-lg w-11/12 sm:w-auto shadow-lg">
+      <ng-content />
+  </div>
+
+  @if (authPage === "/login") {
+    <button class="bg-zinc-500 text-white font-poppins-bold p-2 rounded">
+      <a href="https://discord.com/api/oauth2/authorize?client_id=1174654264472256542&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fapi%2Fauth%2Fdiscord%2Fredirect&scope=identify">
+        Login with discord
+      </a>
+    </button>
+  }
+
+  @if (authPage === "/login") {
+    <span class="text-secondary flex gap-2">Don't have an account ?
+    <a
+      class="text-red-500 font-poppins-bold font-bold"
+      href="/register"
+    >
+      Register now !
+    </a>
+  </span>
+  } @else {
+    <span class="text-secondary flex gap-2">Have an account ?
+    <a
+      class="text-red-500 font-poppins-bold font-bold"
+      href="/login"
+    >
+      Login now !
+    </a>
+  </span>
+  }
+</div>

@@ -66,6 +66,8 @@
           },
           "configurations": {
             "production": {
+              "ssr": false,
+              "prerender": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -81,6 +83,8 @@
               "outputHashing": "all"
             },
             "development": {
+              "ssr": false,
+              "prerender": false,
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true
@@ -127,5 +131,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "cd122750-b8b4-4ad1-8d0b-97ca09b68de3"
   }
 }

@@ -1,0 +1,13 @@
+<auth-layout>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input-field title="Username" name="username" placeholder="example" />
+    <input-field title="Username" name="password" type="password" placeholder="1234" />
+
+    <app-primary-button
+      type="submit"
+      className="w-[95%] mx-auto mt-2 font-bold"
+    >
+      LOGIN
+    </app-primary-button>
+  </form>
+</auth-layout>
