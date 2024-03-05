@@ -1,0 +1,11 @@
+<fieldset class="flex gap-1 flex-col form-group">
+  <label [for]="id" class="text-primary font-poppins-regular mt-2">{{ title }}</label>
+  <input
+    [id]="id"
+    formControlName="{{name}}"
+    [name]="name"
+    [type]="type"
+    [placeholder]="placeholder"
+    class="p-2 focus-within:outline-red-500 text-black border-2 rounded text-secondary w-full border-red-500"
+  />
+</fieldset>
