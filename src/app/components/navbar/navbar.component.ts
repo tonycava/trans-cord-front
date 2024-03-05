@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import Cookie from "js-cookie";
+import { COOKEYS } from "../../core/common/helpers/cookie.helper";
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +12,11 @@ export class NavbarComponent {
   onMenuClick() {
     this.isDropdownOpen = !this.isDropdownOpen;
     console.log(this.isDropdownOpen);
+  }
+
+  onLogout() {
+    Cookie.remove(COOKEYS.JWT_TOKEN);
+    location.assign('/login');
   }
 
   closeDropdown() {

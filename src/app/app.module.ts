@@ -16,6 +16,8 @@ import { UserState } from './store/UserState';
 import environment from './core/environments/environment';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { httpInterceptor } from './core/interceptors/http.interceptor';
+import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NgOptimizedImage } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { httpInterceptor } from './core/interceptors/http.interceptor';
     RegisterComponent,
     HomeComponent,
     InputFieldComponent,
-    RedirectComponent
+    RedirectComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { httpInterceptor } from './core/interceptors/http.interceptor';
     ReactiveFormsModule,
     NgxsModule.forRoot([UserState], {
       developmentMode: !environment.PRODUCTION
-    })
+    }),
+    NgOptimizedImage
   ],
   providers: [
     provideClientHydration(),

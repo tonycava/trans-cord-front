@@ -19,9 +19,9 @@ export class TokenService {
     console.log(isAuthenticated);
     if (isAuthenticated) {
       this.updateToken(true);
-    } else {
+    } /* else {
       this.updateToken(false);
-    }
+    } */
   }
 
   updateToken(status: boolean) {
