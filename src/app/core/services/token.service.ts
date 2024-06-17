@@ -19,9 +19,9 @@ export class TokenService {
 
     if (isAuthenticated) {
       this.updateToken(true);
-    } else {
+    } /* else {
       this.updateToken(false);
-    }
+    } */
   }
 
   setToken(token: string): void {
