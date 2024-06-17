@@ -6,6 +6,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { RedirectComponent } from './api/auth/discord/redirect/redirect.component';
 import { authGuard } from './core/guards/auth.guard';
 import { guestGuard } from './core/guards/guest.guard';
+import { ProfileComponent } from "./pages/profile/profile.component";
+import { ProfileEditComponent } from "./pages/profile/profile-edit/profile-edit.component";
+import { AboutusComponent } from "./pages/aboutus/aboutus.component";
 
 export const routes: Route[] = [
   {
@@ -26,6 +29,20 @@ export const routes: Route[] = [
   {
     path: 'api/auth/discord/redirect',
     component: RedirectComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    children: [
+      {
+        path: 'edit',
+        component: ProfileEditComponent
+      }
+    ]
+  },
+  {
+    path: 'aboutus',
+    component: AboutusComponent
   },
   {
     path: '**',
