@@ -6,6 +6,7 @@ import { User } from "../../core/models/User";
 import Cookie from "js-cookie";
 import { COOKEYS } from "../../core/common/helpers/cookie.helper";
 import { ActivatedRoute } from "@angular/router";
+import { ProfileService } from "../../core/services/profile.service";
 
 @Component({
   selector: 'app-profile',

@@ -21,6 +21,7 @@ import { NgOptimizedImage } from "@angular/common";
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.component';
 import { ViewGraphComponent } from './components/view-graph/view-graph.component';
+import { AboutusComponent } from './pages/aboutus/aboutus.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ViewGraphComponent } from './components/view-graph/view-graph.component
     InputFieldComponent,
     RedirectComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

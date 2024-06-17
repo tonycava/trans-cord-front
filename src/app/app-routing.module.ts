@@ -8,6 +8,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { guestGuard } from './core/guards/guest.guard';
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { ProfileEditComponent } from "./pages/profile/profile-edit/profile-edit.component";
+import { AboutusComponent } from "./pages/aboutus/aboutus.component";
 
 export const routes: Route[] = [
   {
@@ -38,6 +39,10 @@ export const routes: Route[] = [
         component: ProfileEditComponent
       }
     ]
+  },
+  {
+    path: 'aboutus',
+    component: AboutusComponent
   },
   {
     path: '**',

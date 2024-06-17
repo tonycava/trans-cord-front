@@ -16,7 +16,6 @@ export class TokenService {
   constructor() {
     const token = this.getToken();
     const isAuthenticated = this.decodeToken(token);
-    console.log(isAuthenticated);
     if (isAuthenticated) {
       this.updateToken(true);
     } /* else {

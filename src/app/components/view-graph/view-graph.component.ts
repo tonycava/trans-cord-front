@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { CommonModule } from "@angular/common";
+import { ProfileService } from "../../core/services/profile.service";
+import { UserService } from "../../core/services/user.service";
 
 @Component({
   selector: 'app-view-graph',
@@ -11,41 +13,47 @@ import { CommonModule } from "@angular/common";
   ]
 })
 export class ViewGraphComponent implements OnInit {
-  public options: any = {
-    Chart: {
-      type: 'area',
-      height: 700
-    },
-    title: {
-      text: "Evolution du nombre d'utilisation en fonction des pays"
-    },
-    credits: {
-      enabled: false
-    },
-    xAxis: {
-      categories: ['2024', '2025', '2026', '2027', '2028', '2029', '2030'],
-      tickmarkPlacement: 'on',
-      title: {
-        enabled: false
-      }
-    },
-    series: [{
-      name: 'Asia',
-      data: [502, 635, 809, 947, 1402, 3634, 5268]
-    }, {
-      name: 'Europe',
-      data: [163, 203, 276, 408, 547, 729, 628]
-    }, {
-      name: 'America',
-      data: [18, 31, 54, 156, 339, 818, 1201]
-    }]
+
+  constructor(private userService: UserService, private profileService: ProfileService) {
   }
 
-  constructor() {
+  public options: any = {
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Nombre de traduction en fonction  de la langue',
+    },
+    xAxis: {
+      categories: ['Français', 'Anglais', 'Espagnol', 'Russe', 'Chinois', 'Allemand'],
+      crosshair: true,
+      accessibility: {
+        description: 'Countries'
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Nombre de traduction'
+      }
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [
+      {
+        name: 'Langues',
+        data: [10, 0, 3, 11, 3, 20]
+      }
+    ]
   }
 
   ngOnInit() {
     Highcharts.chart('container', this.options);
+    //const user = this.userService.getUser();
+    console.log(this.profileService.getTranslations("44c571e3-69db-4ac5-915b-c613f7b1177d"));
   }
-
 }
