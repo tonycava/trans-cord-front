@@ -9,7 +9,6 @@ export const authGuard: CanActivateFn = () => {
     if (!isAuthenticated) {
       location.assign('/login');
     }
-    console.log(isAuthenticated);
   });
 
   return true;

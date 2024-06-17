@@ -23,8 +23,10 @@ export class RedirectComponent implements OnInit {
 
   async fetchData(params: Params) {
     const data = await this.discordService.getToken(params);
-    Cookie.set(COOKEYS.JWT_TOKEN, data.data.token);
+    console.log(data.data)
+    Cookie.set(COOKEYS.JWT_TOKEN, data.data.data);
     await this.router.navigateByUrl('/');
+    return;
   }
 
 }

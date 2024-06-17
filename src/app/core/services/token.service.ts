@@ -16,12 +16,16 @@ export class TokenService {
   constructor() {
     const token = this.getToken();
     const isAuthenticated = this.decodeToken(token);
-    console.log(isAuthenticated);
+
     if (isAuthenticated) {
       this.updateToken(true);
     } else {
       this.updateToken(false);
     }
+  }
+
+  setToken(token: string): void {
+    Cookie.set(COOKEYS.JWT_TOKEN, token);
   }
 
   updateToken(status: boolean) {

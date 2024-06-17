@@ -14,7 +14,7 @@ export class DiscordService {
   }
 
   getToken(params: Params) {
-    return axios.get<Token>(`${environment.API_URL}/api/auth/discord/redirect?code=${params["code"]}`);
+    return axios.get<any>(`${environment.API_URL}/api/auth/discord/redirect?code=${params["code"]}`);
   }
 
 }
