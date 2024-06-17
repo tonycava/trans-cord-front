@@ -1,0 +1,51 @@
+<app-navbar/>
+
+{{ (user$ | async)?.id }}
+{{ (user$ | async)?.username }}
+<div class="flex flex-row">
+  <div class="flex flex-col w-1/6 h-[calc(100vh-4rem)] border-r-red-500 border-r-2">
+    <div class="flex items-center gap-4 p-2 border-b-2 max-h-16">
+      <img src="favicon.ico" alt="avatar" class="w-7 h-7 rounded-full">
+      <p class="overflow-x-hidden text-ellipsis whitespace-nowrap text-sm"> TestProfile </p>
+    </div>
+    <div class="flex flex-col gap-4 p-2">
+      <a href="/profile" class="flex items-center gap-4">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"></path>
+        </svg>
+        <p>Dashboard</p>
+      </a>
+      <a href="/profile/edit" class="flex items-center gap-4">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21v-2a4 4 0 00-4-4H9a4 4 0 00-4 4v2"></path>
+        </svg>
+        <p>Edit Profile</p>
+      </a>
+      <button class="flex items-center h-10 leading-10 gap-4" (click)="onLogout()">
+        <img class="block h-8 w-10" ngSrc="./assets/icons/power-off-solid.svg" alt="Logout" height="40" width="40">
+        <p>Logout</p>
+      </button>
+    </div>
+  </div>
+  <div class="flex flex-col w-5/6">
+    <ng-container *ngIf="currentRoute === 'profile/'">
+      <h1 class="text-3xl font-bold mb-4 pl-2 pt-2 border-b-2">Dashboard</h1>
+      <app-view-graph></app-view-graph>
+    </ng-container>
+    <ng-container *ngIf="currentRoute === 'profile/edit'">
+      <h1 class="text-3xl font-bold mb-4 pl-2 pt-2 border-b-2">Edit Profile</h1>
+      <div class="relative flex items-center gap-4 p-2 max-h-16">
+        <label for="username" class="bg-bg absolute top-2 -translate-y-1/2 ml-3 p-1 left-0 bg-white text-black text-sm">Username</label>
+        <input type="text" id="username" class="py-3 px-4 border border-black bg-transparent rounded-md" placeholder="username" value="TestProfile">
+      </div>
+      <div class="relative flex items-center gap-4 p-2 max-h-16">
+        <label for="password" class="bg-bg absolute top-2 -translate-y-1/2 ml-3 p-1 left-0 bg-white text-black text-sm">Password</label>
+        <input type="password" id="password" class="py-3 px-4 border border-black bg-transparent rounded-md" placeholder="password" value="TestProfile">
+      </div>
+      <button class="w-48 h-12 bg-blue-500 text-white rounded-md hover:bg-blue-600 ml-24">Save</button>
+    </ng-container>
+  </div>
+</div>
+

@@ -18,6 +18,9 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { httpInterceptor } from './core/interceptors/http.interceptor';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NgOptimizedImage } from "@angular/common";
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.component';
+import { ViewGraphComponent } from './components/view-graph/view-graph.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { NgOptimizedImage } from "@angular/common";
     HomeComponent,
     InputFieldComponent,
     RedirectComponent,
-    NavbarComponent
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { NgOptimizedImage } from "@angular/common";
     NgxsModule.forRoot([UserState], {
       developmentMode: !environment.PRODUCTION
     }),
-    NgOptimizedImage
+    NgOptimizedImage,
+    ViewGraphComponent,
+    NavbarComponent
   ],
   providers: [
     provideClientHydration(),
