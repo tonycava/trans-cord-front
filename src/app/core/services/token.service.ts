@@ -10,7 +10,7 @@ import { COOKEYS } from '../common/helpers/cookie.helper';
 })
 export class TokenService {
   isAuthentication: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
-    true
+    false
   );
 
   constructor() {
