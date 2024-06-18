@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { User } from '../../core/models/User';
+import { HomeService } from "../../core/services/home.service";
 
 @Component({
   selector: 'app-home',
@@ -15,16 +16,21 @@ export class HomeComponent implements OnInit {
   user = toSignal(this.user$);
 
   stats: { title: string, value: number }[] = [];
-  graphData1: any = {};
-  graphData2: any = {};
   reviews: { text: string, user: string }[] = [];
   faqs: { question: string, answer: string }[] = [];
 
-  ngOnInit() {
+  constructor(private homeService: HomeService) {
+  }
+
+
+  async ngOnInit() {
+
+    const { data } = (await this.homeService.welcome().toPromise())!
+
     this.stats = [
-      { title: 'Serveurs', value: 1234 },
-      { title: 'Traductions', value: 56789 },
-      { title: 'Langues supportées', value: 34 }
+      { title: 'Serveurs', value: data?.serverCount ?? 0 },
+      { title: 'Traductions', value: data?.translationCount ?? 0 },
+      { title: 'Langues supportées', value: data?.languageCount ?? 0 }
     ];
 
     this.reviews = [
@@ -33,8 +39,14 @@ export class HomeComponent implements OnInit {
     ];
 
     this.faqs = [
-      { question: 'Comment inviter le bot sur mon serveur ?', answer: 'Utilisez le bouton "Inviter le Bot" en haut de la page.' },
-      { question: 'Quelles langues sont supportées ?', answer: 'Le bot supporte plus de 30 langues, dont l\'anglais, le français, l\'espagnol, etc.' }
+      {
+        question: 'Comment inviter le bot sur mon serveur ?',
+        answer: 'Utilisez le bouton "Inviter le Bot" en haut de la page.'
+      },
+      {
+        question: 'Quelles langues sont supportées ?',
+        answer: 'Le bot supporte pas moins de  de 25 langues, dont l\'anglais, le français, l\'espagnol, etc.'
+      }
     ];
   }
 

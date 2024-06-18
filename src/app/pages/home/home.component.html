@@ -14,12 +14,17 @@
         </div>
       </ng-container>
     </div>
+
+    <a class="flex justify-center" href="https://discord.com/oauth2/authorize?client_id=1174654264472256542&permissions=8&integration_type=0&scope=bot">
+      <app-primary-button class="btn btn-secondary p-2 mt-4 text-2xl">Inviter le Bot</app-primary-button>
+    </a>
+
   </section>
 
-  <section class="reviews py-16">
+  <section class="reviews py-8">
     <h2 class="reviews-title text-center text-2xl font-bold mb-8">Avis des Utilisateurs</h2>
     <div class="reviews-carousel swiper-container">
-      <div class="swiper-wrapper">
+      <div class="swiper-wrapper flex flex-col gap-2">
         <ng-container *ngFor="let review of reviews">
           <div class="swiper-slide review bg-white rounded-lg shadow-md p-8 flex items-center">
             <div class="review-content">
@@ -34,7 +39,7 @@
         <div class="swiper-button-next"></div>
       </div>
     </div>
-    <app-primary-button class="btn btn-secondary" (click)="leaveReview()">Laisser un avis</app-primary-button>
+    <app-primary-button class="btn btn-secondary p-2 mt-4" (click)="leaveReview()">Laisser un avis</app-primary-button>
   </section>
 
   <section class="faq py-16">
