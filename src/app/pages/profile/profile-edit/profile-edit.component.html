@@ -11,7 +11,12 @@
       placeholder="Username"
       name="username"
       title="Username"
+      [readonly]="!(user()?.discordId === null)"
     />
+
+    @if (!(user()?.discordId === null)) {
+      You can not modify your username if your are login with discord
+    }
 
     <input-field
       type="text"

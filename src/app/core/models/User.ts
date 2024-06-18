@@ -1,6 +1,6 @@
 export type User = {
   id: string,
   username: string,
-  discordId: string,
+  discordId: string | null,
   role: string,
 }
