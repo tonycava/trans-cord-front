@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { booleanAttribute, Component, Input } from '@angular/core';
 import { ControlContainer, FormGroupDirective } from "@angular/forms";
 
 @Component({
@@ -12,9 +12,12 @@ import { ControlContainer, FormGroupDirective } from "@angular/forms";
   ]
 })
 export class InputFieldComponent {
-  @Input() type: string = 'text';
-  @Input() title: string = '';
-  @Input() name: string = '';
-  @Input() placeholder: string = '';
+  @Input() type = 'text';
+  @Input() title = '';
+  @Input() name = '';
+  @Input() value = '';
+  @Input() class = '';
+  @Input() placeholder = '';
+  @Input({ transform: booleanAttribute }) readonly = false;
   id = crypto.randomUUID();
 }

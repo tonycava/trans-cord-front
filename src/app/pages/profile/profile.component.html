@@ -1,7 +1,5 @@
 <app-navbar/>
 
-{{ (user$ | async)?.id }}
-{{ (user$ | async)?.username }}
 <div class="flex flex-row">
   <div class="flex flex-col w-1/6 h-[calc(100vh-4rem)] border-r-red-500 border-r-2">
     <div class="flex items-center gap-4 p-2 border-b-2 max-h-16">
@@ -32,19 +30,10 @@
   <div class="flex flex-col w-5/6">
     <ng-container *ngIf="currentRoute === 'profile/'">
       <h1 class="text-3xl font-bold mb-4 pl-2 pt-2 border-b-2">Dashboard</h1>
-      <app-view-graph></app-view-graph>
+      <app-profile-graph />
     </ng-container>
     <ng-container *ngIf="currentRoute === 'profile/edit'">
-      <h1 class="text-3xl font-bold mb-4 pl-2 pt-2 border-b-2">Edit Profile</h1>
-      <div class="relative flex items-center gap-4 p-2 max-h-16">
-        <label for="username" class="bg-bg absolute top-2 -translate-y-1/2 ml-3 p-1 left-0 bg-white text-black text-sm">Username</label>
-        <input type="text" id="username" class="py-3 px-4 border border-black bg-transparent rounded-md" placeholder="username" value="TestProfile">
-      </div>
-      <div class="relative flex items-center gap-4 p-2 max-h-16">
-        <label for="password" class="bg-bg absolute top-2 -translate-y-1/2 ml-3 p-1 left-0 bg-white text-black text-sm">Password</label>
-        <input type="password" id="password" class="py-3 px-4 border border-black bg-transparent rounded-md" placeholder="password" value="TestProfile">
-      </div>
-      <button class="w-48 h-12 bg-blue-500 text-white rounded-md hover:bg-blue-600 ml-24">Save</button>
+      <app-profile-edit />
     </ng-container>
   </div>
 </div>

@@ -5,7 +5,9 @@
     [formControlName]="name"
     [name]="name"
     [type]="type"
+    [value]="value"
     [placeholder]="placeholder"
-    class="p-2 focus-within:outline-red-500 text-black border-2 rounded text-secondary w-full border-red-500"
+    [readOnly]="readonly"
+    class="p-2 focus-within:outline-red-500 text-black border-2 rounded text-secondary w-full border-red-500 {{class}}"
   />
 </fieldset>

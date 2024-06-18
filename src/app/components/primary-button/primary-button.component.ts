@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PrimaryButtonComponent {
   @Input() type = 'button';
-  @Input() className = '';
+  @Input() class = '';
   @Output() btnClick = new EventEmitter(); // Event emitter for click events
 
   handleClick() {

@@ -1,1 +1,36 @@
-<p>profile-edit works!</p>
+<h1 class="text-3xl font-bold mb-4 pl-2 pt-2 border-b-2">Edit Profile</h1>
+
+
+<page-layout>
+
+  <form [formGroup]="profileEditForm" (ngSubmit)="onSubmit()">
+    <input-field
+      type="text"
+      id="username"
+      class="py-3 px-4 bg-transparent rounded-md "
+      placeholder="Username"
+      name="username"
+      title="Username"
+    />
+
+    <input-field
+      type="text"
+      class="py-3 px-4 bg-transparent rounded-md"
+      name="discordId"
+      title="Discord ID"
+      readonly
+    />
+
+    @if (user()?.discordId == "") {
+      If this is empty this mean your are not login with discord<br>
+    }
+
+    <app-primary-button
+      type="submit"
+      class="block w-[95%] mx-auto mt-2 font-bold uppercase"
+    >
+      SAVE
+    </app-primary-button>
+
+  </form>
+</page-layout>

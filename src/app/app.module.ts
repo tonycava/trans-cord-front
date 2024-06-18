@@ -20,7 +20,8 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NgOptimizedImage } from "@angular/common";
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.component';
-import { ViewGraphComponent } from './components/view-graph/view-graph.component';
+import { PageComponent } from "./layout/page/page.component";
+import { ProfileGraphComponent } from './pages/profile/profile-graph/profile-graph.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +29,14 @@ import { ViewGraphComponent } from './components/view-graph/view-graph.component
     LoginComponent,
     PrimaryButtonComponent,
     AuthComponent,
+    PageComponent,
     RegisterComponent,
     HomeComponent,
     InputFieldComponent,
     RedirectComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
+    ProfileGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,6 @@ import { ViewGraphComponent } from './components/view-graph/view-graph.component
       developmentMode: !environment.PRODUCTION
     }),
     NgOptimizedImage,
-    ViewGraphComponent,
     NavbarComponent
   ],
   providers: [

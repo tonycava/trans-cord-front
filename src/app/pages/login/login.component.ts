@@ -23,8 +23,6 @@ export class LoginComponent {
       const user = await this.authService.login(this.loginForm.value as any).toPromise()
       this.tokenService.setToken(user?.data);
       location.assign("/");
-    } else {
-      console.log(this.loginForm);
     }
   }
 
