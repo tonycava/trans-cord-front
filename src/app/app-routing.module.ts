@@ -9,6 +9,7 @@ import { guestGuard } from './core/guards/guest.guard';
 import { ProfileComponent } from "./pages/profile/profile.component";
 import { ProfileEditComponent } from "./pages/profile/profile-edit/profile-edit.component";
 import { AboutusComponent } from "./pages/aboutus/aboutus.component";
+import { ErrorComponent } from "./pages/error/error.component";
 
 export const routes: Route[] = [
   {
@@ -46,7 +47,7 @@ export const routes: Route[] = [
   },
   {
     path: '**',
-    redirectTo: ''
+    component: ErrorComponent
   }
 ];
 

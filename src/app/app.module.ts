@@ -23,6 +23,7 @@ import { ProfileEditComponent } from './pages/profile/profile-edit/profile-edit.
 import { AboutusComponent } from './pages/aboutus/aboutus.component';
 import { PageComponent } from "./layout/page/page.component";
 import { ProfileGraphComponent } from './pages/profile/profile-graph/profile-graph.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProfileGraphComponent } from './pages/profile/profile-graph/profile-gra
     ProfileEditComponent,
     AboutusComponent,
     ProfileEditComponent,
-    ProfileGraphComponent
+    ProfileGraphComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
