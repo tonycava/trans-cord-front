@@ -1,21 +1,48 @@
-FROM node:20.11.1-alpine3.19 as builder
+ARG ENVIRONMENT=prod
 
+# ------------------------------------------------------
+FROM --platform=linux/arm64 node:20.13.1 as deps
+WORKDIR /deps
+
+RUN npm i -g pnpm
+
+
+COPY package.json ./
+
+# ------------------------------------------------------
+FROM deps as dev
 WORKDIR /app
 
-COPY package.json /app
+COPY package.json pnpm-lock.yaml ./
 
-RUN yarn install
+RUN pnpm install
 
 COPY . .
 
-RUN yarn build
+CMD ["pnpm", "start"]
 
-FROM nginx:1.21.3-alpine as runner
+# ------------------------------------------------------
+# FROM  --platform=arm64 node:18.18.0-alpine3.18 as build-stage
+FROM deps as build-prod
+WORKDIR /app
 
-WORKDIR /usr/share/nginx/html/
+COPY package.json ./
+RUN pnpm install
 
-COPY --from=builder /app/dist/transcord-front/browser/ .
+COPY . .
+RUN pnpm run build
 
-COPY --from=builder /app/node_modules/ .
+# RUN pnpm install --prod
 
+# ------------------------------------------------------
+FROM --platform=linux/amd64 nginx:1.21.1-alpine as prod
+WORKDIR /app
 
+COPY --from=build-prod /app/dist/transcord-front/browser /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+# ------------------------------------------------------
+# Final stage to decide which base image to use
+FROM ${ENVIRONMENT}
