@@ -1,1 +1,51 @@
-<app-navbar />
+<app-navbar></app-navbar>
+
+<div class="container mx-auto">
+
+  <section class="stats py-16">
+    <h2 class="stats-title text-center text-2xl font-bold mb-8">Statistiques du bot</h2>
+    <div class="stats-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ng-container *ngFor="let stat of stats">
+        <div class="stat bg-white rounded-lg shadow-md p-8">
+          <div class="stat-info">
+            <h3 class="stat-title text-lg font-medium">{{ stat.title }}</h3>
+            <p class="stat-value text-gray-800">{{ stat.value }}</p>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="reviews py-16">
+    <h2 class="reviews-title text-center text-2xl font-bold mb-8">Avis des Utilisateurs</h2>
+    <div class="reviews-carousel swiper-container">
+      <div class="swiper-wrapper">
+        <ng-container *ngFor="let review of reviews">
+          <div class="swiper-slide review bg-white rounded-lg shadow-md p-8 flex items-center">
+            <div class="review-content">
+              <p class="text-gray-800">"{{ review.text }}" - {{ review.user }}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-navigation">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <app-primary-button class="btn btn-secondary" (click)="leaveReview()">Laisser un avis</app-primary-button>
+  </section>
+
+  <section class="faq py-16">
+    <h2 class="faq-title text-center text-2xl font-bold mb-8">FAQ</h2>
+    <div class="faq-accordion">
+      <ng-container *ngFor="let faq of faqs">
+        <div class="faq-question bg-white rounded-lg shadow-md p-8 mb-4">
+          <h3 class="text-lg font-medium mb-4">{{ faq.question }}</h3>
+          <p class="text-gray-800">{{ faq.answer }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </section>
+</div>
