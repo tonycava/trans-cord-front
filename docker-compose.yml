@@ -1,5 +1,10 @@
 services:
   front:
+    platform: "linux/amd64"
+    container_name: transcord-front
     build: .
+    image: tonycava/transcord-front
+    restart: always
+
     ports:
       - "4200:80"
